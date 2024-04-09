@@ -1,0 +1,12 @@
+﻿<h3>DateComponent</h3>
+<p>@today.ToString("MM/dd/yyyy")</p>
+
+@code {
+    DateTime today;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        today = DateTime.Now;
+    }
+}
