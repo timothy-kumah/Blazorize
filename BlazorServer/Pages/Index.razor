@@ -5,5 +5,27 @@
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
-
+<h1>@user.Email</h1>
+<p>
+    <input type="text" @bind-value:event="oninput" @bind-value="user.Email"/>
+</p>
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+@code {
+    User user = null;
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        user = new User
+            {
+                Email = "kumah@gmail.com",
+                Name = "Timothy"
+            };
+    }
+
+    class User
+    {
+        public string Name { get; set; }
+        public string Email { get; set; }
+    }
+}
