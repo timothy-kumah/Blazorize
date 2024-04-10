@@ -1,0 +1,20 @@
+﻿<input type="text" placeholder="Enter Todo" @bind="newTodo"/>
+<button @onclick="AddTodoAsync">Add</button>
+
+@code {
+    string newTodo ="";
+
+    [Inject]
+    private ITodoService todoService { get; set; }
+
+    private void AddTodoAsync()
+    {
+        Console.WriteLine(newTodo);
+        var todo = new Todo
+            {
+                Title = newTodo,
+                Description = "some desciption"
+            };
+        todoService.AddTodo(todo);
+    }
+}

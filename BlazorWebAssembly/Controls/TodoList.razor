@@ -1,0 +1,19 @@
+﻿<h4 class="mt-3">Todos</h4>
+<ul>
+
+    @foreach(Todo todo in todos){
+        <SingleTodo todo=@todo></SingleTodo>
+    }
+</ul>
+@code {
+    private List<Todo> todos;
+
+    [Inject]
+    private ITodoService todoService { get; set; }
+
+    protected override void OnInitialized()
+    {
+        todos = todoService.GetTodos();
+    }
+
+}
